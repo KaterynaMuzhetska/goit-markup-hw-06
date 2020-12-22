@@ -195,71 +195,6 @@ form {
   transition-timing-function: var(--animating-timing);
 }
 
-/*.accept {
-  align-self: center;
-  margin-bottom: 30px;
-  /*display: flex;
-  align-self: center;
-  height: 24px;
-  margin-bottom: 30px;
-  margin-left: 8px;
-
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0.01em;
-
-  color: var(--modal);
-}
-
-.accept-label {
-  display: flex;
-  align-items: center;
-  margin-left: 8px;
-}
-
-.input-checkbox {
-  margin-right: 8px;
-  appearance: none;
-  cursor: pointer;
-   position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.input-checkbox .icon-svg {
-  display: inline-block;
-
-  transition-duration: 250ms;
-  transition-timing-function: var(--animating-timing);
-}
-
-.input-checkbox:checked + .icon-svg {
-  background-image: url("../images/icons/icon-check.svg");
-  background-color: var(--accent-color);
-
-  background-size: contain;
-  background-origin: border-box;
-  fill: transparent;
-  border-radius: 2px;
-
-  transition-duration: 250ms;
-  transition-timing-function: var(--animating-timing);
-}
-
-.accept-underline {
-  display: flex;
-  align-items: center;
-}
-*/
-
 .checkbox {
   align-self: center;
   margin-bottom: 30px;
@@ -271,12 +206,23 @@ form {
 }
 
 .input-checkbox {
-  margin-right: 8px;
+  display: flex;
   appearance: none;
   cursor: pointer;
 }
 
-.input-checkbox svg {
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/*.input-checkbox svg {
   display: inline-block;
 
   transition-duration: 250ms;
@@ -291,6 +237,30 @@ form {
   background-origin: border-box;
   fill: transparent;
   border-radius: 2px;
+  transition-duration: 250ms;
+  transition-timing-function: var(--animating-timing);
+}*/
+
+.check-box::after {
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  margin-left: 8px;
+  width: 16px;
+  height: 15px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px var(--primary-text-color);
+
+  transition-duration: 250ms;
+  transition-timing-function: var(--animating-timing);
+}
+
+.input-checkbox:checked + .check-box::after {
+  box-shadow: 0 0 0 2px var(--accent-color);
+  background-color: var(--accent-color);
+
+  background-image: url("../images/icons/icon-check.svg");
+
   transition-duration: 250ms;
   transition-timing-function: var(--animating-timing);
 }
